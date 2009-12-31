@@ -292,7 +292,7 @@ table {
   right: 0;
   left: 0px;
   top: 0px;
-  height: 135px;
+  height: 165px;
   margin: 0;
   padding: 5px 0 0 9px;
   background-image: url(/images/fade-160px.png);
@@ -358,6 +358,14 @@ table {
       top: 60px;
     }
 
+    label[for=pl-uploaded-from] {
+      top: 90px;
+    }
+    
+    label[for=pl-uploaded-to] {
+      top: 90px;
+    }
+
     .col-2 input {
       position: absolute;
       left: 70px;
@@ -367,6 +375,13 @@ table {
       top: 60px;
     }
 
+    #pl-uploaded-from {
+      top: 90px;
+    }
+
+    #pl-uploaded-to {
+      top: 90px;
+    }
   #create-smart-playlist .col-2 {
     position: absolute;
     width : 50%;

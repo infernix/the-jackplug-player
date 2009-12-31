@@ -39,7 +39,7 @@ SC.Playlist.prototype = {
   init : function(props) { // this will init the playlist
     this.properties = props;
     var self = this;
-    this.limit = 80; // limit of ajax requests
+    this.limit = 40; // limit of ajax requests
     this.name = props.playlist.name;
     this.id = props.playlist.id;
     this.version = props.playlist.version;
@@ -160,9 +160,31 @@ SC.Playlist.prototype = {
 
       if(pl.smart_filter.order == "hotness" && !pl.smart_filter.user_favorites) { // prevent favs hotness sorting API bug
         var hotness_from = (pl.smart_filter.hotness_from ? pl.smart_filter.hotness_from : SC.dateLastMonth());
-        baseUrl = baseUrl + "&order=" + pl.smart_filter.order + "&created_at[from]=" + hotness_from;
-      } else { // default to sort by latest
+        baseUrl = baseUrl + "&order=" + pl.smart_filter.order;
+        // set a from filter if it's defined
+        if(pl.smart_filter.uploaded_from && pl.smart_filter.uploaded_from != "None") {
+          baseUrl = baseUrl + "&created_at[from]=" + pl.smart_filter.uploaded_from;
+        } else {
+          baseUrl = baseUrl + "&created_at[from]=" + hotness_from;
+        }
+        // set a to filter if it's defined
+        if(pl.smart_filter.uploaded_to && pl.smart_filter.uploaded_to != "None") {
+          // default to sort by latest
+          baseUrl = baseUrl + "&created_at[to]=" + pl.smart_filter.uploaded_to;
+        }
+
+      } else { 
+        // default to sort by latest
         baseUrl = baseUrl + "&order=created_at";
+        // set a from filter if it's defined
+        if(pl.smart_filter.uploaded_from && pl.smart_filter.uploaded_from != "None") {
+          baseUrl = baseUrl + "&created_at[from]=" + pl.smart_filter.uploaded_from;
+        }
+        // set a to filter if it's defined
+        if(pl.smart_filter.uploaded_to && pl.smart_filter.uploaded_to != "None") {
+          // default to sort by latest
+          baseUrl = baseUrl + "&created_at[to]=" + pl.smart_filter.uploaded_to;
+        }
       }
       if(pl.smart_filter.genres) {
         baseUrl = baseUrl + "&genres=" + pl.smart_filter.genres;

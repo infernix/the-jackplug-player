@@ -114,8 +114,8 @@ SC.Player.prototype = {
         bpm_to : Math.floor($("#pl-bpm-range-stop").val()),
         user_favorites : $("#pl-favorite").val().toLowerCase().replace(/\s/,"-"),  // FIXME: cheap username->permalink algoritm
         order : $("#pl-order").val(),
-        uploaded_from : $("#pl-uploaded-from").val(),
-        uploaded_to : $("#pl-uploaded-to").val(),
+        uploaded_from: $("#pl-uploaded-from").val(),
+        uploaded_to: $("#pl-uploaded-to").val(),
         search_term : $("#pl-search-term").val(),
         artist : $("#pl-artist").val().toLowerCase().replace(/\s/,"-") // FIXME: cheap username->permalink algoritm
       }
@@ -318,7 +318,7 @@ SC.Player.prototype = {
     // smart playlists button
     $("#add-smart-playlist").click(function(ev) {
       if($("body").hasClass("logged-in")) {
-        $("#lists").animate({top:135});
+        $("#lists").animate({top:165});
         $("#artist-info").animate({height:"hide"});
         $("#create-smart-playlist").animate({height:"show"},function() {
           setTimeout(function() { // ui.slider bug so have to delay execution here 1ms

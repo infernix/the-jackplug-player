@@ -126,9 +126,9 @@ def parse_smart_filters(playlist, request):
   if(request.get('tags')):
     playlist.tags = request.get('tags')
   if(request.get('uploaded_from')):
-    playlist.uploaded_from = request.get('uploaded_from')
+    playlist.uploaded_from = datetime.strptime(request.get('uploaded_from'),"%Y-%m-%d")
   if(request.get('uploaded_to')):
-    playlist.uploaded_to = request.get('uploaded_to')
+    playlist.uploaded_to = datetime.strptime(request.get('uploaded_to'),"%Y-%m-%d")
   if(request.get('bpm_from')):
     playlist.bpm_from = int(request.get('bpm_from'))
   if(request.get('bpm_to')):
