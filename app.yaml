@@ -20,7 +20,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 application: the-jackplug-player
-version: 3
+version: 1
 runtime: python
 api_version: 1
 
