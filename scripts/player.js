@@ -114,6 +114,8 @@ SC.Player.prototype = {
         bpm_to : Math.floor($("#pl-bpm-range-stop").val()),
         user_favorites : $("#pl-favorite").val().toLowerCase().replace(/\s/,"-"),  // FIXME: cheap username->permalink algoritm
         order : $("#pl-order").val(),
+        uploaded_from : $("#pl-uploaded-from").val(),
+        uploaded_to : $("#pl-uploaded-to").val(),
         search_term : $("#pl-search-term").val(),
         artist : $("#pl-artist").val().toLowerCase().replace(/\s/,"-") // FIXME: cheap username->permalink algoritm
       }
